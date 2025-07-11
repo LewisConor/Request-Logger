@@ -1,7 +1,3 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
 	//Configuration
 	"$schema": "node_modules/wrangler/config-schema.json",
@@ -9,8 +5,7 @@
 	"main": "src/index.ts",
 
 	//Settings
-	"compatibility_date": "2025-07-03",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_date": "2025-06-17",
 	"placement": { "mode": "smart" },
 	"observability": {
 		"enabled": true
@@ -21,13 +16,6 @@
 	"preview_urls": false,
 	
 	//Bindings
-	"kv_namespaces": [
-		{
-			"binding": "KV",
-			"id": "e4c7d4e9641d49048d4b2389469d8eac"
-		}
-	],
-
 	"analytics_engine_datasets": [
 		{
 			"binding": "AED",
