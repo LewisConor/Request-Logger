@@ -173,3 +173,5 @@ dist
 
 .bruno
 .vscode
+
+pnpm-workspace.yaml
