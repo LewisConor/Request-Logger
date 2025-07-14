@@ -18,7 +18,7 @@ export default class RequestLogger extends WorkerEntrypoint<Env> {
 
         //Log to Analytics Engine
 		this.env.AED.writeDataPoint({
-            blobs: [url.hostname, url.pathname],
+            blobs: [url.hostname, url.pathname, checkedRequest.origin],
             doubles: [1]
         });
         
