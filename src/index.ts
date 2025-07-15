@@ -10,27 +10,25 @@ export default class RequestLogger extends WorkerEntrypoint<Env> {
 			return new Response(null, { status: 400 });
 		}
         
-        //Mark as Checked with Full Typing
-        const checkedRequest = request as Types.Core.CheckedRequest;
-
-        const url = new URL(checkedRequest.url);
-        console.log(`Logging request bound for ${url.hostname} for Worker: ${checkedRequest.origin}`);
+        const url = new URL(request.url);
+        console.log(`Logging request bound for ${url.hostname} for Worker: ${request.origin}`);
 
         //Log to Analytics Engine
 		this.env.AED.writeDataPoint({
-            blobs: [url.hostname, url.pathname, checkedRequest.origin],
+            indexes: [url.hostname],
+            blobs: [url.pathname, request.origin],
             doubles: [1]
         });
         
         //Return the Fetch
         return fetch(
-            checkedRequest.url, {
-                method: checkedRequest.method,
-                headers: checkedRequest.headers,
-                body: checkedRequest.body,
+            request.url, {
+                method: request.method,
+                headers: request.headers,
+                body: request.body,
                 cf: {
                     //Default: 12 Hour TTL
-                    cacheTtl: checkedRequest.cache ?? 43200
+                    cacheTtl: request.cache ?? 43200
                 }
             }
         );

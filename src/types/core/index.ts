@@ -1,6 +1,5 @@
-import type { Request, CheckedRequest } from "./request";
+import type { Request } from "./request";
 
 export type {
-    Request,
-    CheckedRequest
+    Request
 }

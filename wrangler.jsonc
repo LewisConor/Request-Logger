@@ -19,7 +19,7 @@
 	"analytics_engine_datasets": [
 		{
 			"binding": "AED",
-			"dataset": "domain-calls"
+			"dataset": "request_logger"
 		}
 	]
 }
